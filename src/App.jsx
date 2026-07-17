@@ -1,9 +1,18 @@
 import React from 'react';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import OurGame from './components/pages/OurGame';
+import Contact from './components/pages/Contact';
+import Steam from './components/pages/Steam';
+
+
+
 const { Header, Content, Footer } = Layout;
-const items = Array.from({ length: 5 }).map((_, index) => ({
-  key: index + 1,
-  label: `nav ${index + 1}`,
+const menu = [Home, About, OurGame, Contact, Steam]
+const items = menu.map((element) => ({
+  key: element.name,
+  label: element.name,
 }));
 const App = () => {
   const {
