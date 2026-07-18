@@ -8,7 +8,7 @@ import NotPage from "./components/pages/NotPage";
 
 const AppRoutes = () => {
 
-    const navigationRoutes = [
+ const navigationRoutes = [
         {path: "/", element: <Home /> },
         {path: "/about", element: <About /> },
         {path: "/contact", element: <Contact /> },
@@ -20,3 +20,5 @@ const AppRoutes = () => {
     return <Routes>{navigationRoutes.map((route)=> (<Route key={route.path} path={route.path} element={route.element}></Route>))}</Routes>
 
 }
+
+export default AppRoutes 

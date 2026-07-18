@@ -5,16 +5,31 @@ import About from './components/pages/About';
 import OurGame from './components/pages/OurGame';
 import Contact from './components/pages/Contact';
 import Steam from './components/pages/Steam';
-
+import { useNavigate } from 'react-router';
+import AppRoutes from './routes';
 
 
 const { Header, Content, Footer } = Layout;
-const menu = [Home, About, OurGame, Contact, Steam]
-const items = menu.map((element) => ({
-  key: element.name,
-  label: element.name,
-}));
+// const menu = [Home, About, OurGame, Contact, Steam]
+// const items = menu.map((element) => ({
+//   key: element.name,
+//   label: element.name,
+// }));
+
+
+
 const App = () => {
+
+const navigate = useNavigate()
+
+        const items = [
+          { key: 'home', label: 'Home', onClick: () => navigate('/') },
+          { key: 'about', label: 'About', onClick: () => navigate('/about') },
+          { key: 'games', label: 'OurGame', onClick: () => navigate('/games') }, 
+          { key: 'contact', label: 'Contact', onClick: () => navigate('/contact') },
+          { key: 'steam', label: 'Steam', onClick: () => navigate('/steam') },
+];
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -44,7 +59,7 @@ const App = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          <AppRoutes/>
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©{currentYear} Created by Ant UED</Footer>
