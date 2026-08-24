@@ -21,8 +21,15 @@ const App = () => {
 
   const items = [
     
-    { key: 'games', label: 'OurGame', onClick: () => navigate('/games') }, 
-    { key: 'media', label: 'Media', onClick: () => navigate('/media') },
+{ 
+      key: 'games', 
+      label: 'OurGame', 
+      children: [
+        { key: 'game1', label: 'Игра 1', onClick: () => navigate('/games/game1') },
+        { key: 'game2', label: 'Игра 2', onClick: () => navigate('/games/game2') },
+        { key: 'all-games', label: 'Все игры', onClick: () => navigate('/games') },
+      ]
+    },    { key: 'media', label: 'Media', onClick: () => navigate('/media') },
 
     { 
       key: 'home', 
