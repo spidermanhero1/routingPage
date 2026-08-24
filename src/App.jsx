@@ -79,7 +79,7 @@ const gamesDropdownMenu = (
   );
 
   return (
-    <Layout>
+    <Layout style={{ minHeight: '100vh' }}>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <div className="demo-logo" />
         <Menu
