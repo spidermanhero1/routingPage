@@ -1,5 +1,6 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme, Dropdown } from 'antd';
+import AppFooter from './components/AppFooter';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import OurGame from './components/pages/OurGame';
@@ -9,27 +10,26 @@ import { useNavigate } from 'react-router';
 import AppRoutes from './routes';
 
 
-const { Header, Content, Footer } = Layout;
-// const menu = [Home, About, OurGame, Contact, Steam]
-// const items = menu.map((element) => ({
-//   key: element.name,
-//   label: element.name,
-// }));
+const { Header, Content } = Layout;
+
 
 const App = () => {
   const navigate = useNavigate();
 
   const items = [
     
-{ 
-      key: 'games', 
-      label: 'OurGame', 
-      children: [
-        { key: 'game1', label: 'Игра 1', onClick: () => navigate('/games/game1') },
-        { key: 'game2', label: 'Игра 2', onClick: () => navigate('/games/game2') },
-        { key: 'all-games', label: 'Все игры', onClick: () => navigate('/games') },
-      ]
-    },    { key: 'media', label: 'Media', onClick: () => navigate('/media') },
+    { 
+  key: 'games', 
+  label: (
+    <Dropdown dropdownRender={() => gamesDropdownMenu} trigger={['hover']} placement="bottomLeft">
+      <div style={{ height: '100%', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/games')}>
+        OurGame
+      </div>
+    </Dropdown>
+  )
+},    
+    
+    { key: 'media', label: 'Media', onClick: () => navigate('/media') },
 
     { 
       key: 'home', 
@@ -49,7 +49,35 @@ const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const currentYear = new Date().getFullYear();
+const gamesDropdownMenu = (
+    <div style={{ 
+      display: 'flex', 
+      gap: '24px', 
+      padding: '24px', 
+      background: '#001529', 
+      borderRadius: '0 0 8px 8px', 
+      boxShadow: '0 8px 16px rgba(0,0,0,0.5)' 
+    }}>
+      
+      {/* Место под постер 1 */}
+      <div onClick={() => navigate('/games/game1')} style={{ cursor: 'pointer', textAlign: 'center', color: '#fff' }}>
+        <div style={{ width: '120px', height: '160px', backgroundColor: '#1f2a38', borderRadius: '6px', marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          Постер 1
+        </div>
+        <span>Игра 1</span>
+      </div>
+
+      {/* Место под постер 2 */}
+      <div onClick={() => navigate('/games/game2')} style={{ cursor: 'pointer', textAlign: 'center', color: '#fff' }}>
+        <div style={{ width: '120px', height: '160px', backgroundColor: '#1f2a38', borderRadius: '6px', marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          Постер 2
+        </div>
+        <span>Игра 2</span>
+      </div>
+
+    </div>
+  );
+
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center' }}>
@@ -78,7 +106,7 @@ const App = () => {
           <AppRoutes/>
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>SpiderMan company {currentYear} Created by Kyzen</Footer>
+      <AppFooter />
     </Layout>
   );
 };
