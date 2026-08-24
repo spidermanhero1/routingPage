@@ -3,7 +3,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import OurGame from './components/pages/OurGame';
 import Contact from './components/pages/Contact';
-import Steam from './components/pages/Steam';
+import Media from './components/pages/Media';
 import NotPage from "./components/pages/NotPage";
 
 const AppRoutes = () => {
@@ -13,7 +13,7 @@ const AppRoutes = () => {
         {path: "/about", element: <About /> },
         {path: "/contact", element: <Contact /> },
         {path: "/games", element: <OurGame /> },
-        {path: "/steam", element: <Steam /> },
+        {path: "/media", element: <Media /> },
         {path: "*", element: <NotPage /> }
 
     ]

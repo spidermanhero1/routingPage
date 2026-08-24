@@ -4,7 +4,7 @@ import Home from './components/pages/Home';
 import About from './components/pages/About';
 import OurGame from './components/pages/OurGame';
 import Contact from './components/pages/Contact';
-import Steam from './components/pages/Steam';
+import Media from './components/pages/Media';
 import { useNavigate } from 'react-router';
 import AppRoutes from './routes';
 
@@ -16,19 +16,28 @@ const { Header, Content, Footer } = Layout;
 //   label: element.name,
 // }));
 
-
-
 const App = () => {
+  const navigate = useNavigate();
 
-const navigate = useNavigate()
+  const items = [
+    
+    { key: 'games', label: 'OurGame', onClick: () => navigate('/games') }, 
+    { key: 'media', label: 'Media', onClick: () => navigate('/media') },
 
-        const items = [
-          { key: 'home', label: 'Home', onClick: () => navigate('/') },
-          { key: 'about', label: 'About', onClick: () => navigate('/about') },
-          { key: 'games', label: 'OurGame', onClick: () => navigate('/games') }, 
-          { key: 'contact', label: 'Contact', onClick: () => navigate('/contact') },
-          { key: 'steam', label: 'Steam', onClick: () => navigate('/steam') },
-];
+    { 
+      key: 'home', 
+      label: (
+        <img 
+          src="/home.png" // Указываем путь к картинке напрямую от корня
+          alt="Home" 
+          style={{ height: '32px', width: 'auto', verticalAlign: 'middle' }} 
+        />
+      ), 
+      onClick: () => navigate('/') 
+    },
+    { key: 'about', label: 'About', onClick: () => navigate('/about') },
+    { key: 'contact', label: 'Contact', onClick: () => navigate('/contact') },
+  ];
 
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -41,15 +50,15 @@ const navigate = useNavigate()
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['2']}
+          defaultSelectedKeys={['home']}
           items={items}
-          style={{ flex: 1, minWidth: 0 }}
+          style={{ flex: 1, minWidth: 0, justifyContent: 'center' }}
         />
       </Header>
       <Content style={{ padding: '0 48px' }}>
         <Breadcrumb
           style={{ margin: '16px 0' }}
-          items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
+          items={[{ title: 'Работаем' }, { title: 'Улучшаем' }, { title: 'Создаем' }]}
         />
         <div
           style={{
@@ -62,7 +71,7 @@ const navigate = useNavigate()
           <AppRoutes/>
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©{currentYear} Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>SpiderMan company {currentYear} Created by Kyzen</Footer>
     </Layout>
   );
 };
