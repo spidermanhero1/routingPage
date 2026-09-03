@@ -43,7 +43,7 @@ const OurGame = () => {
           <Paragraph style={{ color: '#ccc', fontSize: '16px' }}>
             Мрачная история о выживании, где каждый выбор имеет цену. Исследуйте безжалостный мир и найдите свой путь во тьме.
           </Paragraph>
-          <Button type="primary" size="large" onClick={() => navigate('/games/tales-of-weak-people')} style={{ marginTop: '16px' }}>
+          <Button type="primary" size="large" onClick={() => navigate('/games/tales')} style={{ marginTop: '16px' }}>
             Узнать больше
           </Button>
         </Col>
