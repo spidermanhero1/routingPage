@@ -61,7 +61,7 @@ const gamesDropdownMenu = (
     }}>
       
       {/* Место под постер 1 */}
-      <div onClick={() => navigate('/games/game1')} style={{ cursor: 'pointer', textAlign: 'center', color: '#fff' }}>
+      <div onClick={() => navigate('/games/tales')} style={{ cursor: 'pointer', textAlign: 'center', color: '#fff' }}>
         <div style={{ width: '120px', height: '160px', backgroundColor: '#1f2a38', borderRadius: '6px', marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Постер 1
         </div>
@@ -69,7 +69,7 @@ const gamesDropdownMenu = (
       </div>
 
       {/* Место под постер 2 */}
-      <div onClick={() => navigate('/games/game2')} style={{ cursor: 'pointer', textAlign: 'center', color: '#fff' }}>
+      <div onClick={() => navigate('/games/project-unknown')} style={{ cursor: 'pointer', textAlign: 'center', color: '#fff' }}>
         <div style={{ width: '120px', height: '160px', backgroundColor: '#1f2a38', borderRadius: '6px', marginBottom: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           Постер 2
         </div>
