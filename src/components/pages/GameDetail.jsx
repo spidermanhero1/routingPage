@@ -1,28 +1,10 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router';
 import { Typography, Button } from 'antd';
+import { gamesData } from '../../data/games';
 
 const { Title, Paragraph } = Typography;
 
-// Наша локальная "база данных" игр
-// Ключи объекта должны совпадать с тем, что вы передаете в URL (например: /games/tales)
-const gamesData = {
-  'tales': {
-    title: 'TALES of WEAK PEOPLE',
-    trailerUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Ссылка на трейлер
-    description: `Мрачная история о выживании, где каждый выбор имеет цену. 
-                  Исследуйте безжалостный мир, полный опасностей, и найдите свой путь во тьме.
-                  Здесь можно разместить несколько абзацев лора, описывающего атмосферу, 
-                  сюжетную завязку и главные особенности геймплея.`,
-    steamLink: 'https://store.steampowered.com/' // Ссылка на страницу игры
-  },
-  'project-unknown': {
-    title: 'Project: UNKNOWN',
-    trailerUrl: 'https://www.youtube.com/embed/...', // Заглушка
-    description: 'Секретный проект студии. Информация засекречена.',
-    steamLink: '#'
-  }
-};
 
 export default function GameDetail() {
   // Ловим параметр из URL
@@ -38,12 +20,15 @@ export default function GameDetail() {
   }
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '40px 20px', color: '#fff' }}>
-      
-      {/* 1. Название игры */}
+<div style={{ maxWidth: '1000px', margin: '0 auto', padding: '40px 20px', color: '#fff' }}>
       <Title level={1} style={{ color: '#fff', textAlign: 'center', textTransform: 'uppercase', marginBottom: '40px' }}>
         {game.title}
       </Title>
+
+      {/* Пример того, как вывести картинку из базы */}
+      <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+         <img src={game.poster} alt={game.title} style={{ width: '200px', borderRadius: '8px' }} />
+      </div>
 
       {/* 2. Огромный трейлер игры */}
       <div style={{ 

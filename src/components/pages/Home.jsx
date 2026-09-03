@@ -1,4 +1,5 @@
 import React from 'react';
+import promoVideo from '../../assets/tizer.mp4'; // Импортируем видео
 
 const Home = () => {
   return (
@@ -7,13 +8,13 @@ const Home = () => {
       {/* Блок с видео */}
       <div style={{ 
         width: '100%', 
-        maxHeight: '70vh', // Ограничиваем высоту, чтобы видео не занимало весь экран
+        maxHeight: '70vh', // высотa
         overflow: 'hidden', 
-        borderRadius: '12px', // Красиво закругляем углы (по желанию)
-        marginBottom: '24px' // Отступ снизу для будущего текста
+        borderRadius: '12px', 
+        marginBottom: '24px' 
       }}>
         <video 
-          src="/tizer.mp4" /* Имя твоего файла из папки public */
+          src={promoVideo} /*имя файла assets */
           autoPlay 
           loop 
           muted 

@@ -8,6 +8,7 @@ import Contact from './components/pages/Contact';
 import Media from './components/pages/Media';
 import { useNavigate } from 'react-router';
 import AppRoutes from './routes';
+import homeIcon from './assets/home.png';
 
 
 const { Header, Content } = Layout;
@@ -35,7 +36,7 @@ const App = () => {
       key: 'home', 
       label: (
         <img 
-          src="/home.png" // Указываем путь к картинке напрямую от корня
+          src={homeIcon}
           alt="Home" 
           style={{ height: '32px', width: 'auto', verticalAlign: 'middle' }} 
         />
