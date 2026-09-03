@@ -4,6 +4,7 @@ import About from './components/pages/About';
 import OurGame from './components/pages/OurGame';
 import Contact from './components/pages/Contact';
 import Media from './components/pages/Media';
+import GameDetail from "./components/pages/GameDetail";
 import NotPage from "./components/pages/NotPage";
 
 const AppRoutes = () => {
@@ -13,6 +14,7 @@ const AppRoutes = () => {
         {path: "/about", element: <About /> },
         {path: "/contact", element: <Contact /> },
         {path: "/games", element: <OurGame /> },
+        {path: "/games/:gameId", element: <GameDetail /> },
         {path: "/media", element: <Media /> },
         {path: "*", element: <NotPage /> }
 
