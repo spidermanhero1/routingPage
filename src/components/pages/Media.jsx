@@ -91,8 +91,8 @@ const Media = () => {
   // --- НАСТРОЙКА ВКЛАДОК (Верхнее меню игр) ---
   const tabItems = [
     { key: '1', label: 'TALES of WEAK PEOPLE', children: game1Content },
-    { key: '2', label: 'Будущая игра', children: <div>Информация скоро появится...</div> },
-    { key: '3', label: 'Еще один проект', children: <div>Засекречено</div> },
+    // { key: '2', label: 'Будущая игра', children: <div>Информация скоро появится...</div> },
+    // { key: '3', label: 'Еще один проект', children: <div>Засекречено</div> },
   ];
 
   return (
