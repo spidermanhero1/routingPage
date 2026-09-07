@@ -50,14 +50,14 @@ const OurGame = () => {
       </Row>
 
       {/* ПРОЕКТ 2: Текст СЛЕВА, Постер СПРАВА (Меняем порядок для красоты) */}
-      <Row 
+      {/* <Row 
         style={cardStyle} 
         align="middle"
         onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-5px)'}
         onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-      >
+      > */}
         {/* Описание (на десктопе оно будет слева, порядок меняем через order) */}
-        <Col xs={24} md={{ span: 12, order: 1 }} style={{ padding: '40px', order: 2 }}>
+        {/* <Col xs={24} md={{ span: 12, order: 1 }} style={{ padding: '40px', order: 2 }}>
           <Tag color="blue" style={{ marginBottom: '16px' }}>Концепт</Tag>
           <Title level={2} style={{ color: '#fff', marginTop: 0 }}>Project: UNKNOWN</Title>
           <Paragraph style={{ color: '#ccc', fontSize: '16px' }}>
@@ -66,13 +66,13 @@ const OurGame = () => {
           <Button size="large" ghost onClick={() => navigate('/games/project-unknown')} style={{ marginTop: '16px' }}>
             Скоро...
           </Button>
-        </Col>
+        </Col> */}
 
         {/* Постер */}
-        <Col xs={24} md={{ span: 12, order: 2 }} style={{ height: '300px', background: '#111b26', display: 'flex', alignItems: 'center', justifyContent: 'center', order: 1 }}>
+        {/* <Col xs={24} md={{ span: 12, order: 2 }} style={{ height: '300px', background: '#111b26', display: 'flex', alignItems: 'center', justifyContent: 'center', order: 1 }}>
           <span style={{ color: '#444' }}>Секретный постер</span>
         </Col>
-      </Row>
+      </Row> */}
 
     </div>
   );
