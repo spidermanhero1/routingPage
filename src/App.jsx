@@ -19,16 +19,16 @@ const App = () => {
 
   const items = [
     
-    { 
-  key: 'games', 
-  label: (
-    <Dropdown dropdownRender={() => gamesDropdownMenu} trigger={['hover']} placement="bottomLeft">
-      <div style={{ height: '100%', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/games')}>
-        OurGame
-      </div>
-    </Dropdown>
-  )
-},    
+//     { 
+//   key: 'games', 
+//   label: (
+//     <Dropdown dropdownRender={() => gamesDropdownMenu} trigger={['hover']} placement="bottomLeft">
+//       <div style={{ height: '100%', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/games')}>
+//         OurGame
+//       </div>
+//     </Dropdown>
+//   )
+// },    
     
     { key: 'media', label: 'Media', onClick: () => navigate('/media') },
 
@@ -50,7 +50,7 @@ const App = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-const gamesDropdownMenu = (
+// const gamesDropdownMenu = (
     <div style={{ 
       display: 'flex', 
       gap: '24px', 
@@ -77,7 +77,7 @@ const gamesDropdownMenu = (
       </div>
 
     </div>
-  );
+  // );
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
