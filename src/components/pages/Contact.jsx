@@ -20,35 +20,34 @@ const Contact = () => {
           {/* Контейнер для карточек, отцентрированный по ширине */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '500px', margin: '0 auto' }}>
             
-            <Card size="small" hoverable>
+            {/* <Card size="small" hoverable>
               <Text strong style={{ fontSize: '16px' }}>🎮 Техподдержка игроков</Text>
               <br />
-              <a href="mailto:support@talesofweakpeople.com">support@talesofweakpeople.com</a>
-            </Card>
+              <a href="mailto:support@talesofweakpeople.com">twp.studio.games@gmail.com</a>
+            </Card> */}
 
-            <Card size="small" hoverable>
+            {/* <Card size="small" hoverable>
               <Text strong style={{ fontSize: '16px' }}>📰 Пресса и PR</Text>
               <br />
               <a href="mailto:press@talesofweakpeople.com">press@talesofweakpeople.com</a>
-            </Card>
+            </Card> */}
 
             <Card size="small" hoverable>
               <Text strong style={{ fontSize: '16px' }}>💼 Бизнес и партнерство</Text>
               <br />
-              <a href="mailto:bizdev@talesofweakpeople.com">bizdev@talesofweakpeople.com</a>
+              <a href="mailto:bizdev@talesofweakpeople.com">twp.studio.games@gmail.com</a>
             </Card>
 
             {/* Добавленные номера телефонов */}
-            <Card size="small" hoverable>
+            {/* <Card size="small" hoverable>
               <Text strong style={{ fontSize: '16px' }}>📞 Главный офис</Text>
               <br />
               <a href="tel:+12345678900">+1 (234) 567-89-00</a>
-            </Card>
+            </Card> */}
 
             <Card size="small" hoverable>
-              <Text strong style={{ fontSize: '16px' }}>📱 Для срочных вопросов (WhatsApp/Telegram)</Text>
+              <Text strong style={{ fontSize: '16px' }}>📱 Для срочных вопросов (@twpstudio)</Text>
               <br />
-              <a href="tel:+19876543210">+1 (987) 654-32-10</a>
             </Card>
 
           </div>

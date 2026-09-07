@@ -25,30 +25,30 @@ const About = () => {
         
         <Col>
           <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Founded</Text>
-          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>2024</Text>
+          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>5 июня 2026</Text>
         </Col>
         
         {/* Вертикальная линия */}
         <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} />
 
         <Col>
-          <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Headquarter</Text>
-          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>City, Country</Text>
+          <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', textAlign: 'left', marginBottom: '8px',  }}>Headquarter</Text>
+          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>Планета Земля</Text>
         </Col>
 
-        <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} />
+        {/* <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} /> */}
 
-        <Col>
+        {/* <Col>
           <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Headquarter</Text>
           <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>Another City</Text>
-        </Col>
+        </Col> */}
 
-        <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} />
+        {/* <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} /> */}
 
-        <Col>
+        {/* <Col>
           <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Produced Games</Text>
           <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>1 (In Dev)</Text>
-        </Col>
+        </Col> */}
 
       </Row>
 

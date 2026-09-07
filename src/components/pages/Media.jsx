@@ -26,10 +26,10 @@ const Media = () => {
         {/* Правая часть: Список трейлеров */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', overflowY: 'auto' }}>
           <div style={{ height: '120px', minHeight: '120px', background: '#1f2a38', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: '0.2s' }}>
-            Трейлер 1 (Активный)
+            Teaser Trailer — Coming 2027 (Активный)
           </div>
           <div style={{ height: '120px', minHeight: '120px', background: '#001529', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: '0.2s' }}>
-            Трейлер 2
+            Coming soon
           </div>
         </div>
       </div>
