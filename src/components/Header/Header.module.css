@@ -1,0 +1,105 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.9) 0%,
+    rgba(5, 5, 5, 0.4) 60%,
+    transparent 100%
+  );
+  z-index: 50;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logoImage {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navItem {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  padding: 8px 0;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.navItem:hover {
+  color: #ffffff;
+}
+
+.navItem.active {
+  color: #ffffff;
+}
+
+.navItem.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ffffff;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.socialList {
+  display: flex;
+  gap: 16px;
+}
+
+.socialLink {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666666;
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: #ffffff;
+}
+
+.systemControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controlBtn {
+  font-size: 11px;
+  color: #666666;
+  transition: color 0.2s ease;
+}
+
+.controlBtn:hover {
+  color: #ffffff;
+}

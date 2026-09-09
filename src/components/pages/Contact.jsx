@@ -46,7 +46,8 @@ const Contact = () => {
             </Card> */}
 
             <Card size="small" hoverable>
-              <Text strong style={{ fontSize: '16px' }}>📱 Для срочных вопросов (@twpstudio)</Text>
+              <Text strong style={{ fontSize: '16px' }}>📱 Для срочных вопросов Telegram</Text>
+              <a href="@twpstudio">@twpstudio</a>
               <br />
             </Card>
 

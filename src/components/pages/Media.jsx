@@ -70,7 +70,7 @@ const Media = () => {
       </div>
 
       {/* Блок В: Текст слева, Карусель справа (Снова как в первом) */}
-      <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
+      {/* <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
         <div style={{ flex: 1 }}>
           <h2 style={{ fontSize: '28px', marginBottom: '16px' }}>Геймплей</h2>
           <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#ccc' }}>
@@ -83,7 +83,7 @@ const Media = () => {
             <div><div style={{ height: '350px', background: '#2f4050', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Геймплея 2</div></div>
           </Carousel>
         </div>
-      </div>
+      </div> */}
 
     </div>
   );
