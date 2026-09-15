@@ -34,7 +34,7 @@ export const en = {
   },
   media: {
     charactersTitle: 'Characters',
-    charactersDesc: 'Here will be the character descriptions. Learn about the lore, personality traits, and unique abilities.',
+    charactersDesc: 'A proud and uncompromising princess who lets the protagonist take the lead simply because getting her hands dirty is beneath her royal status, and a regular guy who is utterly exhausted, has humorously lost all hope of surviving this meat grinder, yet keeps moving forward. Why? That is for the game to decide.',
     locationsTitle: 'Atmospheric Locations',
     locationsDesc: 'Trenches scarred by the cataclysm, enveloped in a mysterious yellow fog. Explore the gloomy corridors, abandoned ruins, and hidden dungeons.',
   }

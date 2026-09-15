@@ -54,13 +54,13 @@ const AppFooter = () => {
       <div className={styles.centerBlock}>
         <img src={logo} alt="Logo" className={styles.logoImage} />
         <a href="/privacy" className={styles.privacyLink}>
-          Политика конфиденциальности {currentYear}
+          private policy {currentYear}
         </a>
       </div>
 
       {/* 3. Правый блок: Краткие контакты (добавлен Telegram) */}
       <div className={styles.rightBlock}>
-        <span className={styles.contactsLabel}>Краткие контакты</span>
+        <span className={styles.contactsLabel}></span>
         <a href={`mailto:${CONTACTS.email}`} className={styles.emailLink}>
           {CONTACTS.email}
         </a>

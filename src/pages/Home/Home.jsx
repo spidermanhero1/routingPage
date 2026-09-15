@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
-import promoVideo from '../../assets/tizer.mp4';
+import promoVideo from '../../assets/hd1080.mp4';
 import { useLanguage } from '../../context/LanguageContext';
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
       {/* Контент поверх видео */}
       <div className={styles.heroContent}>
         <h1 className={styles.title}>TALES of WEAK PEOPLE</h1>
-        <p className={styles.subtitle}>Независимая студия разработки</p>
+        <p className={styles.subtitle}>{t('home.subtitle')}</p>
         
         {/* Кнопка Steam (пока с заглушкой #) */}
         <a href="#" target="_blank" rel="noreferrer" className={styles.steamButton}>

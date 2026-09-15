@@ -1,14 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Media.module.css';
+import { useLanguage } from '../../context/LanguageContext'; // Подключаем локализацию
 
 // Твои импорты картинок
 import screen1 from './../../assets/prScr1.png';
-import screen2 from './../../assets/tankScr.png';
+import screen2 from './../../assets/herScr.png';
 import screen3 from './../../assets/homeScr.png';
 import screen4 from './../../assets/trashScr.png';
-// import screen5 from './../../assets/newScr.png'; // <-- Просто импортируй новую
+import screen5 from './../../assets/tankScr.png'; // <-- Просто импортируй новую
 
 const Media = () => {
+  const { t } = useLanguage(); // Достаем функцию перевода
   const [activeTab, setActiveTab] = useState('1');
 
   // Управляем активным слайдом
@@ -19,11 +21,9 @@ const Media = () => {
   const carouselRefB = useRef(null);
 
   // === МАГИЯ РАСШИРЯЕМОСТИ ЗДЕСЬ ===
-  // Просто складывай сюда картинки. Хоть 2, хоть 10.
   const carouselA_images = [screen1, screen2]; 
-  const carouselB_images = [screen3, screen4];
+  const carouselB_images = [screen3, screen4, screen5];
 
-  // Код сам посчитает, сколько у тебя слайдов
   const slidesCountA = carouselA_images.length;
   const slidesCountB = carouselB_images.length;
 
@@ -60,7 +60,7 @@ const Media = () => {
         observerB.disconnect();
       };
     }
-  }, [activeTab, slidesCountA, slidesCountB]); // Добавили зависимости длины массивов
+  }, [activeTab, slidesCountA, slidesCountB]);
 
   // Функция для прокрутки
   const scrollCarousel = (ref, index) => {
@@ -114,9 +114,9 @@ const Media = () => {
           {/* 2. Блок А: Текст слева, Карусель справа */}
           <div className={styles.zigzagBlock}>
             <div className={styles.textContent}>
-              <h2 className={styles.blockTitle}>Персонажи</h2>
+              <h2 className={styles.blockTitle}>{t('media.charactersTitle')}</h2>
               <p className={styles.blockDesc}>
-                Здесь будет описание персонажей. Расскажи про лор, особенности характера и уникальные способности.
+                {t('media.charactersDesc')}
               </p>
             </div>
             
@@ -129,7 +129,6 @@ const Media = () => {
               </button>
               
               <div className={styles.carousel} ref={carouselRefA}>
-                {/* Рендерим слайды автоматически из массива */}
                 {carouselA_images.map((imgSrc, index) => (
                   <div className={styles.slide} data-index={index} key={index}>
                     <img src={imgSrc} alt={`Скрин Персов ${index + 1}`} />
@@ -158,7 +157,6 @@ const Media = () => {
               </button>
               
               <div className={styles.carousel} ref={carouselRefB}>
-                {/* Рендерим слайды автоматически из массива */}
                 {carouselB_images.map((imgSrc, index) => (
                   <div className={styles.slide} data-index={index} key={index}>
                     <img src={imgSrc} alt={`Скрин Локаций ${index + 1}`} />
@@ -175,9 +173,9 @@ const Media = () => {
             </div>
 
             <div className={styles.textContent}>
-              <h2 className={styles.blockTitle}>Атмосферные локации</h2>
+              <h2 className={styles.blockTitle}>{t('media.locationsTitle')}</h2>
               <p className={styles.blockDesc}>
-                Мрачные коридоры, заброшенные города и скрытые подземелья. Опиши мир игры здесь.
+                {t('media.locationsDesc')}
               </p>
             </div>
           </div>
