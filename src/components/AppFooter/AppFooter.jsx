@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './AppFooter.module.css';
-import logo from '../../assets/face.png';
+import logo from '../../assets/logohero.jpg';
 import { CONTACTS } from '../../data/contacts';
 
 const AppFooter = () => {
@@ -54,7 +54,7 @@ const AppFooter = () => {
       <div className={styles.centerBlock}>
         <img src={logo} alt="Logo" className={styles.logoImage} />
         <a href="/privacy" className={styles.privacyLink}>
-          Приват полис © {currentYear}
+          Политика конфиденциальности {currentYear}
         </a>
       </div>
 
