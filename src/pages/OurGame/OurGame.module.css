@@ -1,0 +1,141 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.pageTitle {
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 0 60px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 2.2rem;
+}
+
+/* --- Карточка проекта --- */
+.card {
+  display: flex;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Блок с постером --- */
+.poster {
+  flex: 1;
+  min-height: 300px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Блок с контентом --- */
+.content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* --- Теги (Статус разработки) --- */
+.tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.tagGold {
+  color: #d4b856;
+  background: rgba(212, 184, 86, 0.05);
+  border: 1px solid rgba(212, 184, 86, 0.3);
+}
+
+.tagBlue {
+  color: #569cd6;
+  background: rgba(86, 156, 214, 0.05);
+  border: 1px solid rgba(86, 156, 214, 0.3);
+}
+
+/* --- Тексты --- */
+.cardTitle {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0 0 16px 0;
+  letter-spacing: 1px;
+}
+
+.description {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+}
+
+/* --- Кнопки-ссылки --- */
+.button {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.buttonGhost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.buttonGhost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Адаптив --- */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+  
+  .poster {
+    min-height: 200px;
+    /* На мобильных постер ВСЕГДА будет сверху */
+    order: -1 !important; 
+  }
+  
+  .content {
+    padding: 24px;
+  }
+}

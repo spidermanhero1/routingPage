@@ -28,7 +28,7 @@ const Contact = () => {
           <div className={styles.card}>
             <div className={styles.cardHeader}>
               <span className={styles.icon}>📱</span>
-              <span className={styles.label}>Для срочных вопросов (Telegram)</span>
+              <span className={styles.label}>Задать вопрос/связь с разработчиком</span>
             </div>
             <a href={CONTACTS.telegram} target="_blank" rel="noreferrer" className={styles.link}>
               Написать в Telegram

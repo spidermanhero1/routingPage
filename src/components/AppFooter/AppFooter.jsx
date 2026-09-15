@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './AppFooter.module.css';
-import logo from '../../assets/logohero.jpg';
+import logo from '../../assets/logonew.png';
 import { CONTACTS } from '../../data/contacts';
 
 const AppFooter = () => {
