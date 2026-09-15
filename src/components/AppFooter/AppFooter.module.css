@@ -1,0 +1,98 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #050505;
+  padding: 32px 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Тонкая линия как в хедере */
+  color: #8a8a8a;
+}
+
+.leftBlock {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666666;
+}
+
+.centerBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.logoImage {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.privacyLink {
+  color: #666666;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.privacyLink:hover {
+  color: #ffffff;
+}
+
+.rightBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 4px;
+}
+
+.contactsLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666666;
+}
+
+.emailLink {
+  font-size: 13px;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.emailLink:hover {
+  color: #8a8a8a;
+}
+
+.socialGroup {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.iconLink {
+  color: #525252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.iconLink:hover {
+  color: #ffffff;
+  transform: translateY(-2px); /* Легкий подъем при наведении */
+}

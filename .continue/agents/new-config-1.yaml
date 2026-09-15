@@ -1,43 +1,39 @@
-{
-"name": "Minimal Gemini Config",
-"version": "1.0.0",
-"schema": "v1",
-"models": [
-{
-"name": "Gemini 3.5 Flash (Work)",
-"provider": "gemini",
-"model": "gemini-3.5-flash",
-"apiKey": "AQ.Ab8RN6IiMyQnd8DKSTwp_XYkj1s6KFPR2YDvZbYdpXWEXsS5zA",
-"roles": [
-"chat",
-"edit",
-"apply"
-]
-},
-{
-"name": "Gemini 3.1 Flash Lite (Lite)",
-"provider": "gemini",
-"model": "gemini-3.1-flash-lite",
-"apiKey": "AQ.Ab8RN6IiMyQnd8DKSTwp_XYkj1s6KFPR2YDvZbYdpXWEXsS5zA",
-"roles": [
-"chat"
-]
-},
-{
-"name": "Qwen Coder 1.5B (Local)",
-"provider": "ollama",
-"model": "qwen2.5-coder:1.5b-base",
-"roles": [
-"autocomplete"
-]
-},
-{
-"name": "Nomic Embed",
-"provider": "ollama",
-"model": "nomic-embed-text:latest",
-"roles": [
-"embed"
-]
-}
-]
-}
+name: New Config
+version: 1.0.0
+schema: v1
+models:
+  - name: Gemma 4
+    provider: ollama
+    model: gemma4:latest
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: Gemma 4 31B (Cloud)
+    provider: ollama
+    model: gemma4:31b-cloud
+    roles:
+      - chat
+      - edit
+      - apply
+  - name: Qwen Coder 1.5B (Local)
+    provider: ollama
+    model: qwen2.5-coder:1.5b-base
+    roles:
+      - autocomplete
+  - name: Nomic Embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    roles:
+      - embed
+  - name: Autodetect
+    provider: ollama
+    model: AUTODETECT
+  - name: Autodetect (1)
+    provider: ollama
+    model: AUTODETECT
+  - name: Gemini 3 Flash
+    provider: gemini
+    model: gemini-3-flash-preview
+    apiKey: AQ.Ab8RN6IiMyQnd8DKSTwp_XYkj1s6KFPR2YDvZbYdpXWEXsS5zA
+    contextLength: 1048576

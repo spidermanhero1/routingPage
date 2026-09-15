@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router";
-import Home from './components/pages/Home';
-import About from './components/pages/About';
-import OurGame from './components/pages/OurGame';
-import Contact from './components/pages/Contact';
-import Media from './components/pages/Media';
-import GameDetail from "./components/pages/GameDetail";
-import NotPage from "./components/pages/NotPage";
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import OurGame from './pages/OurGame/OurGame';
+import Contact from './pages/Contact/Contact';
+import Media from './pages/Media/Media';
+import GameDetail from './pages/GameDetail/GameDetail';
+import NotPage from './pages/NotPage/NotPage';
+import Privacy from './pages/Privacy/Privacy';
 
 const AppRoutes = () => {
 
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         {path: "/games", element: <OurGame /> },
         {path: "/games/:gameId", element: <GameDetail /> },
         {path: "/media", element: <Media /> },
+        {path: "/privacy", element: <Privacy /> },
         {path: "*", element: <NotPage /> }
 
     ]

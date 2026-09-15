@@ -14,8 +14,17 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // 1. Проверяем, находимся ли мы на главной странице
+  const isHomePage = location.pathname === '/';
+
+  // 2. Динамически собираем классы для хедера
+  const headerClass = isHomePage 
+    ? `${styles.headerBase} ${styles.headerCinematic}` 
+    : styles.headerBase;
+
   return (
-    <header className={styles.header}>
+    // 3. Передаем вычисленную строку классов
+    <header className={headerClass}>
       <div className={styles.logoContainer} onClick={() => navigate('/')}>
         <img src={logoSrc} alt="Logo" className={styles.logoImage} />
       </div>

@@ -1,5 +1,6 @@
-.header {
-  position: absolute;
+/* Базовый хедер (плотный, для всех внутренних страниц) */
+.headerBase {
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -8,13 +9,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 48px;
+  background-color: #050505;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+}
+
+/* Модификатор только для главной страницы (прозрачный, ложится поверх трейлера) */
+.headerCinematic {
+  position: absolute;
   background: linear-gradient(
     to bottom,
     rgba(5, 5, 5, 0.9) 0%,
     rgba(5, 5, 5, 0.4) 60%,
     transparent 100%
   );
-  z-index: 50;
+  border-bottom: none;
 }
 
 .logoContainer {
