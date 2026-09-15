@@ -112,3 +112,15 @@
 .controlBtn:hover {
   color: #ffffff;
 }
+
+.socialLink {
+  color: #888; /* Тусклый серый по умолчанию */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.socialLink:hover {
+  color: #fff; /* Белый при наведении */
+}

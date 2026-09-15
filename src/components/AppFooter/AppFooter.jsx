@@ -12,6 +12,16 @@ const AppFooter = () => {
       <div className={styles.leftBlock}>
         <div className={styles.socialGroup}>
           
+          {/* Discord (Новая контурная иконка) */}
+          <a href={CONTACTS.discord} target="_blank" rel="noreferrer" className={styles.iconLink}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+              <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+              <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.143 3.5 -2c1.14 -1.523 1.65 -4.872 1.5 -6.5c-3 -2.133 -5.5 -2.5 -8 -2.5c-2.5 0 -5.5 .367 -8 2.5c-.15 1.628 .36 4.977 1.5 6.5c.667 .857 2 2 3.5 2c.5 0 2 -2 2 -3"></path>
+              <path d="M8.5 14c1.5 1.5 5.5 1.5 7 0"></path>
+            </svg>
+          </a>
+
           {/* Instagram */}
           <a href={CONTACTS.instagram} target="_blank" rel="noreferrer" className={styles.iconLink}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -48,11 +58,14 @@ const AppFooter = () => {
         </a>
       </div>
 
-      {/* 3. Правый блок: Краткие контакты */}
+      {/* 3. Правый блок: Краткие контакты (добавлен Telegram) */}
       <div className={styles.rightBlock}>
         <span className={styles.contactsLabel}>Краткие контакты</span>
         <a href={`mailto:${CONTACTS.email}`} className={styles.emailLink}>
           {CONTACTS.email}
+        </a>
+        <a href={CONTACTS.telegram} target="_blank" rel="noreferrer" className={styles.emailLink}>
+          {CONTACTS.telegramLabel}
         </a>
       </div>
     </footer>

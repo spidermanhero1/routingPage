@@ -1,0 +1,109 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 0 0 40px 0;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #333; /* Сделали линии видимыми */
+  margin: 24px 0;
+}
+
+/* --- Блок статистики --- */
+.statsRow {
+  display: flex;
+  gap: 64px; /* Строго такой же gap, как у текста */
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Вертикальная линия строго по центру, не сдвигает колонки */
+.statsRow::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 50px;
+  background-color: #333;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Занимает ровно 50% пространства минус gap, как и колонки текста */
+}
+
+.statLabel {
+  color: #888;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+/* --- Текстовый блок --- */
+.textRow {
+  display: flex;
+  gap: 64px;
+  margin-top: 40px;
+}
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 16px;
+}
+
+.paragraph {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.italic {
+  font-style: italic;
+  color: #aaa;
+}
+
+.accent {
+  color: #d4b856;
+  margin-top: 16px;
+}
+
+/* --- Адаптив --- */
+@media (max-width: 768px) {
+  .textRow, .statsRow {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .statsRow::after {
+    display: none; /* Прячем вертикальную линию на смартфонах */
+  }
+  
+  .statItem {
+    align-items: flex-start;
+  }
+}

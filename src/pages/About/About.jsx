@@ -1,90 +1,61 @@
 import React from 'react';
-import { Row, Col, Typography, Divider } from 'antd';
-
-const { Title, Text, Paragraph } = Typography;
+import styles from './About.module.css';
 
 const About = () => {
   return (
-    <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '40px 20px', color: '#fff' }}>
+    <div className={styles.container}>
       
-      {/* Главный заголовок */}
-      <Title level={1} style={{ 
-        color: '#fff', 
-        fontWeight: 300, // Делаем шрифт тонким, как в референсе
-        letterSpacing: '1px', 
-        marginBottom: '40px',
-        textTransform: 'uppercase' 
-      }}>
+      <h1 className={styles.title}>
         About TALES of WEAK PEOPLE
-      </Title>
+      </h1>
 
-      <Divider style={{ borderColor: '#333', margin: '24px 0' }} />
+      <div className={styles.divider} />
 
-      {/* Блок статистики (4 колонки) */}
-      <Row justify="space-between" align="middle" style={{ padding: '10px 0' }}>
+      {/* Блок статистики */}
+      <div className={styles.statsRow}>
+        <div className={styles.statItem}>
+          <span className={styles.statLabel}>Founded</span>
+          <span className={styles.statValue}>5 июня 2026</span>
+        </div>
         
-        <Col>
-          <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Founded</Text>
-          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>5 июня 2026</Text>
-        </Col>
-        
-        {/* Вертикальная линия */}
-        <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} />
+        <div className={styles.statItem}>
+          <span className={styles.statLabel}>Headquarter</span>
+          <span className={styles.statValue}>Планета Земля</span>
+        </div>
+      </div>
 
-        <Col>
-          <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', textAlign: 'left', marginBottom: '8px',  }}>Headquarter</Text>
-          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>Планета Земля</Text>
-        </Col>
+      <div className={styles.divider} />
 
-        {/* <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} /> */}
-
-        {/* <Col>
-          <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Headquarter</Text>
-          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>Another City</Text>
-        </Col> */}
-
-        {/* <div style={{ width: '1px', height: '50px', backgroundColor: '#333' }} /> */}
-
-        {/* <Col>
-          <Text style={{ display: 'block', color: '#888', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>Produced Games</Text>
-          <Text style={{ color: '#fff', fontSize: '28px', fontWeight: 300 }}>1 (In Dev)</Text>
-        </Col> */}
-
-      </Row>
-
-      <Divider style={{ borderColor: '#333', margin: '24px 0' }} />
-
-      {/* Текстовый блок (2 колонки) */}
-      <Row gutter={64} style={{ marginTop: '40px' }}>
+      {/* Текстовый блок */}
+      <div className={styles.textRow}>
         
         {/* Левая колонка */}
-        <Col xs={24} md={12}>
-          <Paragraph style={{ color: '#ccc', fontSize: '16px', lineHeight: '1.8' }}>
+        <div className={styles.textColumn}>
+          <p className={styles.paragraph}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-          </Paragraph>
-          <Paragraph italic style={{ color: '#aaa', fontSize: '16px', lineHeight: '1.8' }}>
+          </p>
+          <p className={`${styles.paragraph} ${styles.italic}`}>
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </Paragraph>
-          <Paragraph italic style={{ color: '#aaa', fontSize: '16px', lineHeight: '1.8' }}>
+          </p>
+          <p className={`${styles.paragraph} ${styles.italic}`}>
             Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris.
-          </Paragraph>
-        </Col>
+          </p>
+        </div>
 
         {/* Правая колонка */}
-        <Col xs={24} md={12}>
-          <Paragraph italic style={{ color: '#aaa', fontSize: '16px', lineHeight: '1.8' }}>
+        <div className={styles.textColumn}>
+          <p className={`${styles.paragraph} ${styles.italic}`}>
             Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.
-          </Paragraph>
-          <Paragraph italic style={{ color: '#aaa', fontSize: '16px', lineHeight: '1.8' }}>
+          </p>
+          <p className={`${styles.paragraph} ${styles.italic}`}>
             Phasellus egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Aliquam id diam maecenas ultricies mi eget mauris.
-          </Paragraph>
-          {/* Тот самый акцентный желтый текст */}
-          <Paragraph style={{ color: '#d4b856', fontSize: '16px', lineHeight: '1.8', marginTop: '32px' }}>
+          </p>
+          <p className={`${styles.paragraph} ${styles.accent}`}>
             For us, games have never been just entertainment - they are emotions, memories, and living worlds that bring millions of players together across generations. (Lorem ipsum dolor sit amet).
-          </Paragraph>
-        </Col>
+          </p>
+        </div>
         
-      </Row>
+      </div>
       
     </div>
   );

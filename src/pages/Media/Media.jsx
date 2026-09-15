@@ -1,109 +1,190 @@
-import React from 'react';
-import { Tabs, Carousel } from 'antd';
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './Media.module.css';
+
+// Твои импорты картинок
+import screen1 from './../../assets/prScr1.png';
+import screen2 from './../../assets/tankScr.png';
+import screen3 from './../../assets/homeScr.png';
+import screen4 from './../../assets/trashScr.png';
+// import screen5 from './../../assets/newScr.png'; // <-- Просто импортируй новую
 
 const Media = () => {
-  // --- КОНТЕНТ ДЛЯ ПЕРВОЙ ИГРЫ ---
-  const game1Content = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '64px', marginTop: '24px' }}>
-      
-      {/* 1. БЛОК С ТРЕЙЛЕРАМИ (YouTube + Боковое меню) */}
-      <div style={{ display: 'flex', gap: '24px', height: '500px' }}>
-        
-        {/* Левая часть: Главный плеер */}
-        <div style={{ flex: 3, background: '#000', borderRadius: '12px', overflow: 'hidden' }}>
-          <iframe
-            width="100%"
-            height="100%"
-            // Замени на свою ссылку YouTube (важно: используй /embed/ ссылку)
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+  const [activeTab, setActiveTab] = useState('1');
 
-        {/* Правая часть: Список трейлеров */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '16px', overflowY: 'auto' }}>
-          <div style={{ height: '120px', minHeight: '120px', background: '#1f2a38', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: '0.2s' }}>
-            Teaser Trailer — Coming 2027 (Активный)
-          </div>
-          <div style={{ height: '120px', minHeight: '120px', background: '#001529', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: '0.2s' }}>
-            Coming soon
-          </div>
-        </div>
-      </div>
+  // Управляем активным слайдом
+  const [activeSlideIndexA, setActiveSlideIndexA] = useState(0);
+  const [activeSlideIndexB, setActiveSlideIndexB] = useState(0);
 
+  const carouselRefA = useRef(null);
+  const carouselRefB = useRef(null);
 
-      {/* 2. БЛОКИ СО СКРИНШОТАМИ (Зигзаг / Шахматка) */}
+  // === МАГИЯ РАСШИРЯЕМОСТИ ЗДЕСЬ ===
+  // Просто складывай сюда картинки. Хоть 2, хоть 10.
+  const carouselA_images = [screen1, screen2]; 
+  const carouselB_images = [screen3, screen4];
 
-      {/* Блок А: Текст слева, Карусель справа */}
-      <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
-        <div style={{ flex: 1 }}>
-          <h2 style={{ fontSize: '28px', marginBottom: '16px' }}>Персонажи</h2>
-          <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#ccc' }}>
-            Здесь будет описание персонажей. Расскажи про лор, особенности характера и уникальные способности.
-          </p>
-        </div>
-        <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
-          <Carousel autoplay>
-            <div><div style={{ height: '350px', background: '#364d79', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Персов 1</div></div>
-            <div><div style={{ height: '350px', background: '#2f4050', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Персов 2</div></div>
-          </Carousel>
-        </div>
-      </div>
+  // Код сам посчитает, сколько у тебя слайдов
+  const slidesCountA = carouselA_images.length;
+  const slidesCountB = carouselB_images.length;
 
-      {/* Блок Б: Карусель слева, Текст справа (Меняем местами) */}
-      <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
-        <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
-          <Carousel autoplay>
-            <div><div style={{ height: '350px', background: '#2f4050', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Локаций 1</div></div>
-            <div><div style={{ height: '350px', background: '#364d79', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Локаций 2</div></div>
-          </Carousel>
-        </div>
-        <div style={{ flex: 1 }}>
-          <h2 style={{ fontSize: '28px', marginBottom: '16px' }}>Атмосферные локации</h2>
-          <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#ccc' }}>
-            Мрачные коридоры, заброшенные города и скрытые подземелья. Опиши мир игры здесь.
-          </p>
-        </div>
-      </div>
+  // Intersection Observer
+  useEffect(() => {
+    if (activeTab === '1') {
+      const observerCallback = (entries, observerSetState) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index, 10);
+            observerSetState(index);
+          }
+        });
+      };
 
-      {/* Блок В: Текст слева, Карусель справа (Снова как в первом) */}
-      {/* <div style={{ display: 'flex', gap: '48px', alignItems: 'center' }}>
-        <div style={{ flex: 1 }}>
-          <h2 style={{ fontSize: '28px', marginBottom: '16px' }}>Геймплей</h2>
-          <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#ccc' }}>
-            Динамичные бои, сложные головоломки и принятие решений. Тут текст про механики.
-          </p>
-        </div>
-        <div style={{ flex: 1, borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
-          <Carousel autoplay>
-            <div><div style={{ height: '350px', background: '#364d79', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Геймплея 1</div></div>
-            <div><div style={{ height: '350px', background: '#2f4050', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>Скрин Геймплея 2</div></div>
-          </Carousel>
-        </div>
-      </div> */}
+      const observerA = new IntersectionObserver(
+        (entries) => observerCallback(entries, setActiveSlideIndexA),
+        { threshold: 0.5 }
+      );
+      if (carouselRefA.current) {
+        Array.from(carouselRefA.current.children).forEach(child => observerA.observe(child));
+      }
 
-    </div>
-  );
+      const observerB = new IntersectionObserver(
+        (entries) => observerCallback(entries, setActiveSlideIndexB),
+        { threshold: 0.5 }
+      );
+      if (carouselRefB.current) {
+        Array.from(carouselRefB.current.children).forEach(child => observerB.observe(child));
+      }
 
-  // --- НАСТРОЙКА ВКЛАДОК (Верхнее меню игр) ---
-  const tabItems = [
-    { key: '1', label: 'TALES of WEAK PEOPLE', children: game1Content },
-    // { key: '2', label: 'Будущая игра', children: <div>Информация скоро появится...</div> },
-    // { key: '3', label: 'Еще один проект', children: <div>Засекречено</div> },
+      return () => {
+        observerA.disconnect();
+        observerB.disconnect();
+      };
+    }
+  }, [activeTab, slidesCountA, slidesCountB]); // Добавили зависимости длины массивов
+
+  // Функция для прокрутки
+  const scrollCarousel = (ref, index) => {
+    if (ref.current && ref.current.children[index]) {
+      ref.current.children[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }
+  };
+
+  const tabs = [
+    { id: '1', label: 'TALES of WEAK PEOPLE' },
   ];
 
   return (
-    <div style={{ width: '100%', color: '#fff' }}>
-      {/* Компонент Tabs от AntD идеально заменяет твои кнопки "Название игры" */}
-      <Tabs 
-        defaultActiveKey="1" 
-        items={tabItems} 
-        size="large"
-        centered // Центрируем табы
-      />
+    <div className={styles.container}>
+      
+      <div className={styles.tabsHeader}>
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            className={`${styles.tabButton} ${activeTab === tab.id ? styles.active : ''}`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === '1' && (
+        <div className={styles.tabContent}>
+          
+          {/* 1. Блок с трейлерами */}
+          <div className={styles.trailerSection}>
+            <div className={styles.mainPlayer}>
+              <iframe
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className={styles.trailerList}>
+              <div className={`${styles.trailerItem} ${styles.active}`}>
+                Teaser Trailer — Coming 2027
+              </div>
+              <div className={styles.trailerItem}>
+                Coming soon
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Блок А: Текст слева, Карусель справа */}
+          <div className={styles.zigzagBlock}>
+            <div className={styles.textContent}>
+              <h2 className={styles.blockTitle}>Персонажи</h2>
+              <p className={styles.blockDesc}>
+                Здесь будет описание персонажей. Расскажи про лор, особенности характера и уникальные способности.
+              </p>
+            </div>
+            
+            <div className={styles.carouselWrapper}>
+              <button
+                className={`${styles.carouselButton} ${styles.carouselButtonLeft}`}
+                onClick={() => scrollCarousel(carouselRefA, activeSlideIndexA === 0 ? slidesCountA - 1 : activeSlideIndexA - 1)}
+              >
+                <span className={styles.carouselIcon}>&larr;</span>
+              </button>
+              
+              <div className={styles.carousel} ref={carouselRefA}>
+                {/* Рендерим слайды автоматически из массива */}
+                {carouselA_images.map((imgSrc, index) => (
+                  <div className={styles.slide} data-index={index} key={index}>
+                    <img src={imgSrc} alt={`Скрин Персов ${index + 1}`} />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className={`${styles.carouselButton} ${styles.carouselButtonRight}`}
+                onClick={() => scrollCarousel(carouselRefA, activeSlideIndexA === slidesCountA - 1 ? 0 : activeSlideIndexA + 1)}
+              >
+                <span className={styles.carouselIcon}>&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          {/* 3. Блок Б: Карусель слева, Текст справа */}
+          <div className={styles.zigzagBlock}>
+            
+            <div className={styles.carouselWrapper}>
+              <button
+                className={`${styles.carouselButton} ${styles.carouselButtonLeft}`}
+                onClick={() => scrollCarousel(carouselRefB, activeSlideIndexB === 0 ? slidesCountB - 1 : activeSlideIndexB - 1)}
+              >
+                <span className={styles.carouselIcon}>&larr;</span>
+              </button>
+              
+              <div className={styles.carousel} ref={carouselRefB}>
+                {/* Рендерим слайды автоматически из массива */}
+                {carouselB_images.map((imgSrc, index) => (
+                  <div className={styles.slide} data-index={index} key={index}>
+                    <img src={imgSrc} alt={`Скрин Локаций ${index + 1}`} />
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className={`${styles.carouselButton} ${styles.carouselButtonRight}`}
+                onClick={() => scrollCarousel(carouselRefB, activeSlideIndexB === slidesCountB - 1 ? 0 : activeSlideIndexB + 1)}
+              >
+                <span className={styles.carouselIcon}>&rarr;</span>
+              </button>
+            </div>
+
+            <div className={styles.textContent}>
+              <h2 className={styles.blockTitle}>Атмосферные локации</h2>
+              <p className={styles.blockDesc}>
+                Мрачные коридоры, заброшенные города и скрытые подземелья. Опиши мир игры здесь.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      )}
+
     </div>
   );
 };
