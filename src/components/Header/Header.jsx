@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import styles from './Header.module.css';
+import { useLanguage } from '../../context/LanguageContext';
 import logoSrc from '../../assets/logo.png';
 import { CONTACTS } from '../../data/contacts';
 
@@ -14,6 +15,7 @@ const NAVIGATION = [
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { lang, setLang, t } = useLanguage();
 
   // 1. Проверяем, находимся ли мы на главной странице
   const isHomePage = location.pathname === '/';
@@ -30,19 +32,31 @@ const Header = () => {
       </div>
 
       <nav className={styles.nav}>
-        {NAVIGATION.map((item) => {
-          const isActive = location.pathname === item.path;
-          return (
-            <button
-              key={item.path}
-              type="button"
-              className={`${styles.navItem} ${isActive ? styles.active : ''}`}
-              onClick={() => navigate(item.path)}
-            >
-              {item.label}
-            </button>
-          );
-        })}
+        {/* 3. Применяем функцию t() к названиям вкладок */}
+        <button
+          className={`${styles.navItem} ${location.pathname === '/media' ? styles.active : ''}`}
+          onClick={() => navigate('/media')}
+        >
+          {t('nav.media')}
+        </button>
+        <button
+          className={`${styles.navItem} ${location.pathname === '/' ? styles.active : ''}`}
+          onClick={() => navigate('/')}
+        >
+          {t('nav.home')}
+        </button>
+        <button
+          className={`${styles.navItem} ${location.pathname === '/about' ? styles.active : ''}`}
+          onClick={() => navigate('/about')}
+        >
+          {t('nav.about')}
+        </button>
+        <button
+          className={`${styles.navItem} ${location.pathname === '/contact' ? styles.active : ''}`}
+          onClick={() => navigate('/contact')}
+        >
+          {t('nav.contact')}
+        </button>
       </nav>
 
       <div className={styles.actions}>
@@ -83,11 +97,26 @@ const Header = () => {
             </svg>
           </a>
 
-        </div>
-        
-        <div className={styles.systemControls}>
-          <button type="button" className={styles.controlBtn}>RU</button>
-          <button type="button" className={styles.controlBtn}>☼</button>
+        </div>     
+       <div className={styles.systemControls}>
+          {/* 4. Кнопки смены языка EN и UK */}
+          <button 
+            type="button" 
+            className={styles.controlBtn}
+            style={{ color: lang === 'en' ? '#fff' : '#666' }}
+            onClick={() => setLang('en')}
+          >
+            EN
+          </button>
+          <span style={{ color: '#444', fontSize: '11px' }}>|</span>
+          <button 
+            type="button" 
+            className={styles.controlBtn}
+            style={{ color: lang === 'uk' ? '#fff' : '#666' }}
+            onClick={() => setLang('uk')}
+          >
+            UK
+          </button>
         </div>
       </div>
     </header>
