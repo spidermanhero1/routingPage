@@ -34,8 +34,21 @@ export const en = {
   },
   media: {
     charactersTitle: 'Characters',
-    charactersDesc: 'A proud and uncompromising princess who lets the protagonist take the lead simply because getting her hands dirty is beneath her royal status, and a regular guy who is utterly exhausted, has humorously lost all hope of surviving this meat grinder, yet keeps moving forward. Why? That is for the game to decide.',
+    charactersDesc: 'A proud princess who sends the protagonist ahead simply because getting her hands dirty is beneath her, and an ordinary guy who is already exhausted, humorously abandoned hope of surviving this meat grinder, yet keeps pushing forward. What for? That is what we will discover in the game.',
     locationsTitle: 'Atmospheric Locations',
-    locationsDesc: 'Trenches scarred by the cataclysm, enveloped in a mysterious yellow fog. Explore the gloomy corridors, abandoned ruins, and hidden dungeons.',
-  }
+    locationsDesc: 'Trenches scarred by the cataclysm, enveloped in a mysterious yellow fog. Explore gloomy corridors, abandoned ruins, and hidden dungeons.',
+  },
+  privacy: {
+    title: 'TWP.Studio Privacy Policy',
+    intro: 'At TWP.Studio, we respect your privacy. Our website serves solely as an informational showcase for our projects.',
+    dataCollectionTitle: 'Data Collection',
+    dataCollectionText: 'We do not collect, store, or process your personal data (names, emails, phone numbers, or payment information). There are no input forms, account registrations, or subscriptions on this site.',
+    cookiesTitle: 'Cookies',
+    cookiesText: 'We do not use advertising trackers, marketing cookies, or tracking analytics systems.',
+    logsTitle: 'Technical Logs',
+    logsText: 'The web hosting provider may temporarily log basic technical network parameters (IP address, browser type) solely to ensure DDoS protection and server stability.',
+    externalTitle: 'External Platforms',
+    externalText: 'The site features links to our communities, including the official Steam group (steamcommunity.com/groups/twpstudio). When following external links, the privacy policies of the respective platforms (such as Valve Corporation) apply.',
+    footerNote: 'For all questions, you can reach out directly via our Steam community.',
+  },
 };

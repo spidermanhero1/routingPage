@@ -1,21 +1,19 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { en } from '../data/locales/en';
 import { uk } from '../data/locales/uk';
+import { ru } from '../data/locales/ru';
 
-const dictionaries = { en, uk };
+const dictionaries = { en, uk, ru };
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  // Берем язык из кэша браузера, если его нет — ставим 'en'
   const [lang, setLang] = useState(() => localStorage.getItem('app_lang') || 'en');
 
-  // Сохраняем выбор пользователя, чтобы при перезагрузке язык не сбрасывался
   useEffect(() => {
     localStorage.setItem('app_lang', lang);
   }, [lang]);
 
-  // Функция перевода: принимает ключ (например, 'nav.home') и отдает текст
   const t = (key) => {
     const keys = key.split('.');
     let value = dictionaries[lang];

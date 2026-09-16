@@ -117,6 +117,15 @@ const Header = () => {
           >
             UK
           </button>
+          <span style={{ color: '#444', fontSize: '11px' }}>|</span>
+          <button 
+            type="button" 
+            className={styles.controlBtn}
+            style={{ color: lang === 'ru' ? '#fff' : '#666' }}
+            onClick={() => setLang('ru')}
+          >
+            RU
+          </button>
         </div>
       </div>
     </header>
