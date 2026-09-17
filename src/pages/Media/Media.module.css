@@ -140,12 +140,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   overflow: hidden;
-}
-
-/* --- Модификатор для портретной карусели --- */
-.portraitWrapper {
-  flex: 0 0 380px;
-  max-width: 380px;
+  /* Убрали фиксированную высоту, теперь она адаптивная на основе aspect-ratio слайдов */
 }
 
 .carouselButton {
@@ -204,7 +199,7 @@
 /* --- Слайд (Изображение) --- */
 .slide {
   flex: 0 0 100%;
-  aspect-ratio: 16 / 9; /* Горизонтальный пейзаж по умолчанию */
+  aspect-ratio: 16 / 9; /* Задаем адаптивный размер (киношное соотношение 16:9) */
   scroll-snap-align: start;
   border-radius: inherit;
   overflow: hidden;
@@ -213,15 +208,10 @@
   align-items: center;
 }
 
-/* Меняем пропорции для портретного режима */
-.portraitWrapper .slide {
-  aspect-ratio: 3 / 4; 
-}
-
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Изображение заполняет область без искажений */
   border-radius: inherit;
 }
 
@@ -257,13 +247,7 @@
     width: 100%;
   }
 
-  /* Центрируем портретную карусель на планшетах и мобилках */
-  .zigzagBlock > .portraitWrapper {
-    flex: 1 1 auto;
-    margin: 0 auto;
-    width: 100%;
-  }
-
+  /* На мобильных кнопки можно скрыть, так как свайп более естественен */
   .carouselButton {
     display: none;
   }
@@ -272,10 +256,5 @@
 @media (max-width: 576px) {
   .mainPlayer {
     height: 250px;
-  }
-  
-  /* На очень узких экранах портретная карусель сужается под экран */
-  .portraitWrapper {
-    max-width: 100%;
   }
 }

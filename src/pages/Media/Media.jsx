@@ -100,7 +100,7 @@ const Media = () => {
             </div>
             <div className={styles.trailerList}>
               <div className={`${styles.trailerItem} ${styles.active}`}>
-                Teaser Trailer — Coming 2027
+                Teaser Trailer - Coming 2027
               </div>
               <div className={styles.trailerItem}>
                 Coming soon

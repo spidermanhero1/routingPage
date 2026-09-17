@@ -16,12 +16,12 @@ export const en = {
     headquarterValue: 'Planet Earth',
     leftCol: {
       p1: 'TWP.Studio was founded by an independent developer who sees game creation as pure artistic expression rather than a corporate race. Free from industry dogmas, preset molds, or chasing fleeting trends.',
-      p2: 'Creativity knows no labels, age, background, or predefined roles. The creator remains neutral and dissolves into the work itself — because the only thing that truly matters is the experience delivered to the player.',
-      p3: 'The journey began with visual novels — a medium driven by storytelling, atmosphere, and intimate narratives. Yet this is only the starting point: the studio evolves without boundaries, embracing new ideas and formats.',
+      p2: 'Creativity knows no labels, age, background, or predefined roles. The creator remains neutral and dissolves into the work itself - because the only thing that truly matters is the experience delivered to the player.',
+      p3: 'The journey began with visual novels - a medium driven by storytelling, atmosphere, and intimate narratives. Yet this is only the starting point: the studio evolves without boundaries, embracing new ideas and formats.',
     },
     rightCol: {
       p1: 'Exploring different genres is a natural progression. Moving from atmospheric narrative adventures into new interactive spaces and mechanics: no single genre should confine a genuine idea.',
-      p2: 'Each project is a standalone world built from the ground up with meticulous attention to detail. No biases, no assumptions, and no creative limits — just craft, code, and an honest connection with the player.',
+      p2: 'Each project is a standalone world built from the ground up with meticulous attention to detail. No biases, no assumptions, and no creative limits - just craft, code, and an honest connection with the player.',
       quote: 'For us, games are neither bound by the identities of their creators nor confined by genre labels. They are living worlds, mood, and experiences that speak entirely for themselves.',
     },
   },

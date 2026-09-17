@@ -18,4 +18,22 @@ a {
   color: inherit;
   text-decoration: none;
 }
+ 
+/* --- МАГИЯ ДЛЯ 4K МОНИТОРОВ ЗАКАЗЧИКА --- */
+@media (min-width: 2560px) {
+  body {
+    /* Масштабирование для Cчччhrome, Edge, Safari, Opera */
+    zoom: 1.8; 
+  }
+  
+  .appLayout {
+    /* Фолбэк для Firefox, который не понимает zoom */
+    transform: scale(1.5);
+    transform-origin: top center;
+  }
 
+  /* Пробиваем лимит в 1200px для ВСЕХ контейнеров на сайте */
+  div[class*="container"] {
+    max-width: 2200px !important;
+  }
+}

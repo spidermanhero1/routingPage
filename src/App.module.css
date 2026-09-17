@@ -13,3 +13,14 @@
   flex-direction: column;
   width: 100%;
 }
+
+@media (min-width: 2100px) {
+  #root {
+    zoom: 1.8; 
+  }
+
+
+  div[class*="container"] {
+    max-width: 1600px !important;
+  }
+}

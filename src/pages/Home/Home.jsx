@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './Home.module.css';
 import steamIcon from '../../assets/steam.svg'; 
-import promoVideo from '../../assets/1080(10k).mp4';
-
+import promoVideo from '../../assets/tizer-fixed.mp4';
 import { useLanguage } from '../../context/LanguageContext';
 
 const Home = () => {
@@ -12,7 +11,10 @@ const Home = () => {
   return (
     <section className={styles.heroSection}>
       {/* Фоновое видео */}
-      <video className={styles.mediaAsset} autoPlay loop muted playsInline>
+      <video className={styles.mediaAsset} autoPlay={true} 
+  loop={true} 
+  muted={true} 
+  playsInline={true}>
         <source src={promoVideo} type="video/mp4" />
       </video> 
      
