@@ -1,9 +1,10 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router';
 import styles from './Header.module.css';
+import { useNavigate, useLocation } from 'react-router';
+import { CONTACTS } from '../../data/contacts';
 import { useLanguage } from '../../context/LanguageContext';
 import logoSrc from '../../assets/logo.png';
-import { CONTACTS } from '../../data/contacts';
+import discordIcon from '../../assets/Discord-Symbol-White.svg'; 
 
 const NAVIGATION = [
   { path: '/media', label: 'Media' },
@@ -64,12 +65,11 @@ const Header = () => {
           
           {/* Discord */}
           <a href={CONTACTS.discord} target="_blank" rel="noreferrer" className={styles.socialLink}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
-              <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
-              <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.143 3.5 -2c1.14 -1.523 1.65 -4.872 1.5 -6.5c-3 -2.133 -5.5 -2.5 -8 -2.5c-2.5 0 -5.5 .367 -8 2.5c-.15 1.628 .36 4.977 1.5 6.5c.667 .857 2 2 3.5 2c.5 0 2 -2 2 -3"></path>
-              <path d="M8.5 14c1.5 1.5 5.5 1.5 7 0"></path>
-            </svg>
+            <img 
+               src={discordIcon} 
+               alt="discord" 
+               style={{ width: '24px', height: '24px', flexShrink: 0 }} 
+             />
           </a>
 
           {/* Instagram */}
@@ -115,7 +115,7 @@ const Header = () => {
             style={{ color: lang === 'uk' ? '#fff' : '#666' }}
             onClick={() => setLang('uk')}
           >
-            UK
+            UA
           </button>
           <span style={{ color: '#444', fontSize: '11px' }}>|</span>
           <button 

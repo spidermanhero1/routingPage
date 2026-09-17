@@ -1,33 +1,32 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Media.module.css';
-import { useLanguage } from '../../context/LanguageContext'; // Подключаем локализацию
+import { useLanguage } from '../../context/LanguageContext';
 
-// Твои импорты картинок
+// Импорты картинок
 import screen1 from './../../assets/prScr1.png';
 import screen2 from './../../assets/herScr.png';
 import screen3 from './../../assets/homeScr.png';
 import screen4 from './../../assets/trashScr.png';
-import screen5 from './../../assets/tankScr.png'; // <-- Просто импортируй новую
+import screen5 from './../../assets/tankScr.png';
 
 const Media = () => {
-  const { t } = useLanguage(); // Достаем функцию перевода
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('1');
 
-  // Управляем активным слайдом
-  const [activeSlideIndexA, setActiveSlideIndexA] = useState(0);
-  const [activeSlideIndexB, setActiveSlideIndexB] = useState(0);
+  // Разделяем стейты логически: Loc (Локации) и Char (Персонажи)
+  const [activeSlideIndexLoc, setActiveSlideIndexLoc] = useState(0);
+  const [activeSlideIndexChar, setActiveSlideIndexChar] = useState(0);
 
-  const carouselRefA = useRef(null);
-  const carouselRefB = useRef(null);
+  const carouselRefLoc = useRef(null);
+  const carouselRefChar = useRef(null);
 
-  // === МАГИЯ РАСШИРЯЕМОСТИ ЗДЕСЬ ===
-  const carouselA_images = [screen1, screen2]; 
-  const carouselB_images = [screen3, screen4, screen5];
+  // Массивы картинок
+  const locationsImages = [screen3, screen4, screen5]; // Локации
+  const charactersImages = [screen1, screen2];         // Персонажи
 
-  const slidesCountA = carouselA_images.length;
-  const slidesCountB = carouselB_images.length;
+  const slidesCountLoc = locationsImages.length;
+  const slidesCountChar = charactersImages.length;
 
-  // Intersection Observer
   useEffect(() => {
     if (activeTab === '1') {
       const observerCallback = (entries, observerSetState) => {
@@ -39,30 +38,29 @@ const Media = () => {
         });
       };
 
-      const observerA = new IntersectionObserver(
-        (entries) => observerCallback(entries, setActiveSlideIndexA),
+      const observerLoc = new IntersectionObserver(
+        (entries) => observerCallback(entries, setActiveSlideIndexLoc),
         { threshold: 0.5 }
       );
-      if (carouselRefA.current) {
-        Array.from(carouselRefA.current.children).forEach(child => observerA.observe(child));
+      if (carouselRefLoc.current) {
+        Array.from(carouselRefLoc.current.children).forEach(child => observerLoc.observe(child));
       }
 
-      const observerB = new IntersectionObserver(
-        (entries) => observerCallback(entries, setActiveSlideIndexB),
+      const observerChar = new IntersectionObserver(
+        (entries) => observerCallback(entries, setActiveSlideIndexChar),
         { threshold: 0.5 }
       );
-      if (carouselRefB.current) {
-        Array.from(carouselRefB.current.children).forEach(child => observerB.observe(child));
+      if (carouselRefChar.current) {
+        Array.from(carouselRefChar.current.children).forEach(child => observerChar.observe(child));
       }
 
       return () => {
-        observerA.disconnect();
-        observerB.disconnect();
+        observerLoc.disconnect();
+        observerChar.disconnect();
       };
     }
-  }, [activeTab, slidesCountA, slidesCountB]);
+  }, [activeTab, slidesCountLoc, slidesCountChar]);
 
-  // Функция для прокрутки
   const scrollCarousel = (ref, index) => {
     if (ref.current && ref.current.children[index]) {
       ref.current.children[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
@@ -91,7 +89,6 @@ const Media = () => {
       {activeTab === '1' && (
         <div className={styles.tabContent}>
           
-          {/* 1. Блок с трейлерами */}
           <div className={styles.trailerSection}>
             <div className={styles.mainPlayer}>
               <iframe
@@ -111,71 +108,72 @@ const Media = () => {
             </div>
           </div>
 
-          {/* 2. Блок А: Текст слева, Карусель справа */}
+          {/* БЛОК 1: ЛОКАЦИИ (Пейзажный формат, Текст слева, Карусель справа) */}
           <div className={styles.zigzagBlock}>
             <div className={styles.textContent}>
-              <h2 className={styles.blockTitle}>{t('media.charactersTitle')}</h2>
+              <h2 className={styles.blockTitle}>{t('media.locationsTitle')}</h2>
               <p className={styles.blockDesc}>
-                {t('media.charactersDesc')}
+                {t('media.locationsDesc')}
               </p>
             </div>
             
             <div className={styles.carouselWrapper}>
               <button
                 className={`${styles.carouselButton} ${styles.carouselButtonLeft}`}
-                onClick={() => scrollCarousel(carouselRefA, activeSlideIndexA === 0 ? slidesCountA - 1 : activeSlideIndexA - 1)}
+                onClick={() => scrollCarousel(carouselRefLoc, activeSlideIndexLoc === 0 ? slidesCountLoc - 1 : activeSlideIndexLoc - 1)}
               >
                 <span className={styles.carouselIcon}>&larr;</span>
               </button>
               
-              <div className={styles.carousel} ref={carouselRefA}>
-                {carouselA_images.map((imgSrc, index) => (
+              <div className={styles.carousel} ref={carouselRefLoc}>
+                {locationsImages.map((imgSrc, index) => (
                   <div className={styles.slide} data-index={index} key={index}>
-                    <img src={imgSrc} alt={`Скрин Персов ${index + 1}`} />
+                    <img src={imgSrc} alt={`Локация ${index + 1}`} />
                   </div>
                 ))}
               </div>
 
               <button
                 className={`${styles.carouselButton} ${styles.carouselButtonRight}`}
-                onClick={() => scrollCarousel(carouselRefA, activeSlideIndexA === slidesCountA - 1 ? 0 : activeSlideIndexA + 1)}
+                onClick={() => scrollCarousel(carouselRefLoc, activeSlideIndexLoc === slidesCountLoc - 1 ? 0 : activeSlideIndexLoc + 1)}
               >
                 <span className={styles.carouselIcon}>&rarr;</span>
               </button>
             </div>
           </div>
 
-          {/* 3. Блок Б: Карусель слева, Текст справа */}
+          {/* БЛОК 2: ПЕРСОНАЖИ (Портретный формат, Карусель слева, Текст справа) */}
           <div className={styles.zigzagBlock}>
             
-            <div className={styles.carouselWrapper}>
+            {/* Добавлен класс portraitWrapper для изменения пропорций */}
+            <div className={`${styles.carouselWrapper} ${styles.portraitWrapper}`}>
               <button
                 className={`${styles.carouselButton} ${styles.carouselButtonLeft}`}
-                onClick={() => scrollCarousel(carouselRefB, activeSlideIndexB === 0 ? slidesCountB - 1 : activeSlideIndexB - 1)}
+                onClick={() => scrollCarousel(carouselRefChar, activeSlideIndexChar === 0 ? slidesCountChar - 1 : activeSlideIndexChar - 1)}
               >
                 <span className={styles.carouselIcon}>&larr;</span>
               </button>
               
-              <div className={styles.carousel} ref={carouselRefB}>
-                {carouselB_images.map((imgSrc, index) => (
+              <div className={styles.carousel} ref={carouselRefChar}>
+                {charactersImages.map((imgSrc, index) => (
                   <div className={styles.slide} data-index={index} key={index}>
-                    <img src={imgSrc} alt={`Скрин Локаций ${index + 1}`} />
+                    <img src={imgSrc} alt={`Персонаж ${index + 1}`} />
                   </div>
                 ))}
               </div>
 
               <button
                 className={`${styles.carouselButton} ${styles.carouselButtonRight}`}
-                onClick={() => scrollCarousel(carouselRefB, activeSlideIndexB === slidesCountB - 1 ? 0 : activeSlideIndexB + 1)}
+                onClick={() => scrollCarousel(carouselRefChar, activeSlideIndexChar === slidesCountChar - 1 ? 0 : activeSlideIndexChar + 1)}
               >
                 <span className={styles.carouselIcon}>&rarr;</span>
               </button>
             </div>
 
             <div className={styles.textContent}>
-              <h2 className={styles.blockTitle}>{t('media.locationsTitle')}</h2>
+              <h2 className={styles.blockTitle}>{t('media.charactersTitle')}</h2>
               <p className={styles.blockDesc}>
-                {t('media.locationsDesc')}
+                {t('media.charactersDesc')}
               </p>
             </div>
           </div>

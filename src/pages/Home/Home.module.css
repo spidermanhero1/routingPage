@@ -74,8 +74,12 @@
   align-items: center;
   gap: 12px;
   padding: 14px 32px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  
+  /* Убрали черный, сделали легкое белое стекло */
+  background: rgba(255, 255, 255, 0.1); 
+  /* Сделали рамку в два раза заметнее */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
   border-radius: 8px;
   color: #fff;
   text-decoration: none;
@@ -87,7 +91,10 @@
 }
 
 .steamButton:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  /* При наведении стекло становится плотнее, а рамка почти белой */
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-2px);
+  /* Добавим легкую тень, чтобы кнопка "оторвалась" от фона */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
