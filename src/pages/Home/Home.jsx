@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Home.module.css';
 import steamIcon from '../../assets/steam.svg'; 
-// Это наш легкий 1080p файл для всех обычных пользователей
 import promoVideo from '../../assets/tizer-fixed.mp4';
 import { useLanguage } from '../../context/LanguageContext';
 import { STEAM } from '../../data/steam';
@@ -15,17 +14,11 @@ const Home = () => {
       {/* Фоновое видео */}
       <video 
         className={styles.mediaAsset} 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
+        autoPlay={true} 
+        loop={true} 
+        muted={true} 
+        playsInline={true}
       >
-        {/* 1. 4K версия для больших мониторов (2560px и шире). 
-            Браузер прочитает это условие и скачает файл ТОЛЬКО если экран подходит.
-            Сам файл потом просто закинешь в папку public/ и назовешь tizer-4k.mp4 */}
-        <source src="/tizer-4k.mp4" type="video/mp4" media="(min-width: 2560px)" />
-        
-        {/* 2. Стандартная 1080p версия для ноутбуков, планшетов и телефонов */}
         <source src={promoVideo} type="video/mp4" />
       </video> 
      
