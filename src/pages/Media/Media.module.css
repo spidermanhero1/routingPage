@@ -108,9 +108,14 @@
 /* --- Зигзаг Блоки (Скриншоты и текст) --- */
 .zigzagBlock {
   display: flex;
-  gap: 48px;
+  gap: 80px; /* Увеличили отступ, чтобы на больших экранах блоки не слипались */
   align-items: center;
-  justify-content: space-between; /* Распределяет пространство между каруселью и текстом */
+  justify-content: center; /* Стягиваем элементы к центру, а не к краям */
+  
+  /* Ограничиваем ширину самого контентного блока, чтобы он не разрывался в 4K */
+  max-width: 1300px; 
+  width: 100%;
+  margin: 0 auto; /* Центрируем блок внутри гигантского 2200px контейнера */
 }
 
 .textContent {
@@ -139,6 +144,7 @@
 .carouselWrapper {
   position: relative;
   flex: 1;
+  max-width: 800px; /* Запрещаем карусели раздуваться больше этого размера */
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   overflow: hidden;
