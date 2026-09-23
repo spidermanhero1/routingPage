@@ -110,6 +110,7 @@
   display: flex;
   gap: 48px;
   align-items: center;
+  justify-content: space-between; /* Распределяет пространство между каруселью и текстом */
 }
 
 .textContent {
@@ -117,6 +118,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 600px; /* Ограничиваем ширину текста, чтобы он не слипался с карточкой */
 }
 
 .blockTitle {
@@ -133,16 +135,35 @@
   margin: 0;
 }
 
-/* --- Кнопки переключения карусели --- */
+/* --- Стандартная карусель (Локации, 16:9) --- */
 .carouselWrapper {
   position: relative;
   flex: 1;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   overflow: hidden;
-  /* Убрали фиксированную высоту, теперь она адаптивная на основе aspect-ratio слайдов */
 }
 
+/* --- ВЕРТИКАЛЬНАЯ КАРУСЕЛЬ (Персонажи, 3:4) --- */
+.portraitWrapper {
+  flex: 0 0 380px; /* Жестко фиксируем ширину */
+  max-width: 380px;
+  aspect-ratio: 3 / 4; /* Делаем блок вертикальным */
+  background-color: #0f0f0f; /* Подложка для прозрачных спрайтов */
+}
+
+/* Переопределяем слайд специально для портретного режима */
+.portraitWrapper .slide {
+  aspect-ratio: 3 / 4;
+}
+
+/* Настраиваем отображение спрайтов, чтобы они стояли снизу */
+.portraitWrapper .slide img {
+  object-fit: contain; 
+  object-position: bottom center; 
+}
+
+/* --- Кнопки переключения карусели --- */
 .carouselButton {
   position: absolute;
   top: 50%;
@@ -196,10 +217,10 @@
   display: none;
 }
 
-/* --- Слайд (Изображение) --- */
+/* --- Слайд (Изображение стандартное) --- */
 .slide {
   flex: 0 0 100%;
-  aspect-ratio: 16 / 9; /* Задаем адаптивный размер (киношное соотношение 16:9) */
+  aspect-ratio: 16 / 9;
   scroll-snap-align: start;
   border-radius: inherit;
   overflow: hidden;
@@ -211,7 +232,7 @@
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Изображение заполняет область без искажений */
+  object-fit: cover;
   border-radius: inherit;
 }
 
@@ -240,6 +261,7 @@
   .zigzagBlock {
     flex-direction: column;
     gap: 32px;
+    text-align: center; /* Центрируем текст на мобильных */
   }
 
   .zigzagBlock > .carouselWrapper {
@@ -247,7 +269,18 @@
     width: 100%;
   }
 
-  /* На мобильных кнопки можно скрыть, так как свайп более естественен */
+  /* Адаптив для карточки персонажей на мобильных */
+  .portraitWrapper {
+    flex: auto;
+    width: 100%;
+    max-width: 380px; /* Чтобы не растягивалось на весь экран планшета */
+    margin: 0 auto;
+  }
+
+  .textContent {
+    max-width: 100%;
+  }
+
   .carouselButton {
     display: none;
   }

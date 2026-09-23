@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Media.module.css';
 import { useLanguage } from '../../context/LanguageContext';
-
 // Импорты картинок
-import screen1 from './../../assets/prScr1.png';
-import screen2 from './../../assets/herScr.png';
+import heroSprite from './../../assets/hero.webp';
+import axiomSprite from './../../assets/axiom.webp';
 import screen3 from './../../assets/homeScr.png';
 import screen4 from './../../assets/trashScr.png';
 import screen5 from './../../assets/tankScr.png';
@@ -22,7 +21,10 @@ const Media = () => {
 
   // Массивы картинок
   const locationsImages = [screen3, screen4, screen5]; // Локации
-  const charactersImages = [screen1, screen2];         // Персонажи
+  const charactersImages = [
+    heroSprite,
+    axiomSprite
+  ];;         // Персонажи
 
   const slidesCountLoc = locationsImages.length;
   const slidesCountChar = charactersImages.length;
