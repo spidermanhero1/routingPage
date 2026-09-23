@@ -74,6 +74,7 @@
   overflow-y: auto;
   scrollbar-width: none;
 }
+
 .trailerList::-webkit-scrollbar {
   display: none;
 }
@@ -105,17 +106,32 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* --- Глобальные обертки секций (Новое) --- */
+.sectionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 32px;
+}
+
+.sectionTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 /* --- Зигзаг Блоки (Скриншоты и текст) --- */
 .zigzagBlock {
   display: flex;
-  gap: 80px; /* Увеличили отступ, чтобы на больших экранах блоки не слипались */
+  gap: 80px;
   align-items: center;
-  justify-content: center; /* Стягиваем элементы к центру, а не к краям */
-  
-  /* Ограничиваем ширину самого контентного блока, чтобы он не разрывался в 4K */
+  justify-content: center;
   max-width: 1300px; 
   width: 100%;
-  margin: 0 auto; /* Центрируем блок внутри гигантского 2200px контейнера */
+  margin: 0 auto;
 }
 
 .textContent {
@@ -123,14 +139,15 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 600px; /* Ограничиваем ширину текста, чтобы он не слипался с карточкой */
+  max-width: 600px;
 }
 
-.blockTitle {
+/* --- Типографика и RPG Статы (Новое) --- */
+.itemTitle {
   font-size: 28px;
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin: 0;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 12px 0;
 }
 
 .blockDesc {
@@ -140,11 +157,94 @@
   margin: 0;
 }
 
+.quote {
+  font-style: italic;
+  color: #888;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  padding-left: 16px;
+  margin: 16px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.statsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: left; /* Жестко задаем левый край, чтобы на мобилках таблица не поехала */
+}
+
+.statRow {
+  display: flex;
+  gap: 12px;
+}
+
+.statLabel {
+  color: #777;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 80px;
+  flex-shrink: 0; /* Запрещаем сужаться лейблам */
+}
+
+.statValue {
+  color: #ddd;
+  font-size: 14px;
+}
+
+/* --- Спойлеры и кнопки (Новое) --- */
+.moreDesc {
+  margin-top: 16px;
+  animation: fadeIn 0.3s ease-in;
+  text-align: left; /* Для аккуратного чтения */
+}
+
+.detailBlock h4 {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+}
+
+.detailBlock p {
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.readMoreBtn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+}
+
+.readMoreBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* --- Стандартная карусель (Локации, 16:9) --- */
 .carouselWrapper {
   position: relative;
   flex: 1;
-  max-width: 800px; /* Запрещаем карусели раздуваться больше этого размера */
+  max-width: 800px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   overflow: hidden;
@@ -152,18 +252,16 @@
 
 /* --- ВЕРТИКАЛЬНАЯ КАРУСЕЛЬ (Персонажи, 3:4) --- */
 .portraitWrapper {
-  flex: 0 0 380px; /* Жестко фиксируем ширину */
+  flex: 0 0 380px;
   max-width: 380px;
-  aspect-ratio: 3 / 4; /* Делаем блок вертикальным */
-  background-color: #0f0f0f; /* Подложка для прозрачных спрайтов */
+  aspect-ratio: 3 / 4;
+  background-color: #0f0f0f;
 }
 
-/* Переопределяем слайд специально для портретного режима */
 .portraitWrapper .slide {
   aspect-ratio: 3 / 4;
 }
 
-/* Настраиваем отображение спрайтов, чтобы они стояли снизу */
 .portraitWrapper .slide img {
   object-fit: contain; 
   object-position: bottom center; 
@@ -223,7 +321,6 @@
   display: none;
 }
 
-/* --- Слайд (Изображение стандартное) --- */
 .slide {
   flex: 0 0 100%;
   aspect-ratio: 16 / 9;
@@ -265,9 +362,13 @@
   }
   
   .zigzagBlock {
-    flex-direction: column;
-    gap: 32px;
-    text-align: center; /* Центрируем текст на мобильных */
+    display: flex;
+    gap: 80px;
+    align-items: flex-start; /* Изменено с center на flex-start. Теперь верхние края фото и текста всегда на одной линии */
+    justify-content: center;
+    max-width: 1300px; 
+    width: 100%;
+    margin: 0 auto;
   }
 
   .zigzagBlock > .carouselWrapper {
@@ -275,16 +376,16 @@
     width: 100%;
   }
 
-  /* Адаптив для карточки персонажей на мобильных */
   .portraitWrapper {
     flex: auto;
     width: 100%;
-    max-width: 380px; /* Чтобы не растягивалось на весь экран планшета */
+    max-width: 380px;
     margin: 0 auto;
   }
 
   .textContent {
     max-width: 100%;
+    align-items: center; /* Центрируем кнопку "Читать далее" на мобильных */
   }
 
   .carouselButton {
@@ -295,5 +396,16 @@
 @media (max-width: 576px) {
   .mainPlayer {
     height: 250px;
+  }
+  
+  .sectionTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center !important;
+  align-self: center; /* Жестко ставим по центру flex-контейнера */
   }
 }
