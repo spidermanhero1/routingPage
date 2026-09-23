@@ -4,6 +4,8 @@ import AppFooter from './components/AppFooter/AppFooter';
 import AppRoutes from './routes';
 import styles from './App.module.css';
 
+import { Analytics } from '@vercel/analytics/react'
+
 const App = () => {
   return (
     <div className={styles.appLayout}>
@@ -11,6 +13,7 @@ const App = () => {
       <main className={styles.mainContent}>
         <AppRoutes />
       </main>
+      <Analytics />
       <AppFooter />
     </div>
   );
