@@ -92,7 +92,7 @@ const Media = () => {
           <div className={styles.trailerSection}>
             <div className={styles.mainPlayer}>
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/TARUSpBisPU?si=4Hro450HPtk3Uhb2"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

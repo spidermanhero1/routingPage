@@ -3,6 +3,7 @@ import styles from './Home.module.css';
 import steamIcon from '../../assets/steam.svg'; 
 import promoVideo from '../../assets/tizer-fixed.mp4';
 import { useLanguage } from '../../context/LanguageContext';
+import { STEAM } from '../../data/steam';
 
 const Home = () => {
 
@@ -23,8 +24,8 @@ const Home = () => {
         <h1 className={styles.title}>TALES of WEAK PEOPLE</h1>
         <p className={styles.subtitle}>{t('home.subtitle')}</p>
         
-        {/* Кнопка Steam (пока с заглушкой #) */}
-        <a href="#" target="_blank" rel="noreferrer" className={styles.steamButton}>
+        {/* Кнопка Steam) */}
+        <a href={STEAM.steam} target="_blank" rel="noreferrer" className={styles.steamButton}>
          <img 
             src={steamIcon} 
             alt="Steam" 

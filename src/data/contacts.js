@@ -1,9 +1,9 @@
 export const CONTACTS = {
-  email: "contact@twpstudio.com",
-  discord: "https://discord.gg/",
-  instagram: "https://instagram.com/",
-  telegramLabel: '@twpstudio', // Для вывода текстом в футере
-  telegram: "https://t.me/",
-  youtube: "https://youtube.com/",
+  email: "twp.studio.games@gmail.com",
+  discord: "https://discord.gg/j8btK5bAb6",
+  instagram: "https://www.instagram.com/twp.studio.games/",
+  telegramLabel: 't.me/twpstudiogames', // Для вывода текстом в футере
+  telegram: "https://t.me/twpstudiogames",
+  youtube: "https://www.youtube.com/@TWP.Studio",
   steamGroup: "https://steamcommunity.com/groups/twpstudio",
 };
